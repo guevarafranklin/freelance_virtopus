@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "alpinejs": "^3.14.8",
+    "esbuild": "^0.25.0"
+  }
+}
