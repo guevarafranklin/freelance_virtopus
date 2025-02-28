@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  get "payments/create"
+  get "payments/index"
+  get "time_entries/create"
+  get "time_entries/index"
+  get "contracts/index"
+  get "contracts/show"
+  get "contracts/new"
+  get "contracts/create"
+  get "jobs/index"
+  get "jobs/show"
+  get "jobs/new"
+  get "jobs/create"
+  get "jobs/edit"
+  get "jobs/update"
+  get "jobs/destroy"
+  get "profiles/show"
+  get "profiles/edit"
+  get "profiles/update"
   devise_for :users
   root 'home#index'
 end

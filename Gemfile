@@ -60,3 +60,4 @@ end
 #additional gems 
 gem 'devise'
 gem 'cancancan'
+gem 'stripe'
