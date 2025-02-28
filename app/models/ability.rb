@@ -1,32 +1,29 @@
-# frozen_string_literal: true
-
 class Ability
   include CanCan::Ability
 
   def initialize(user)
-    # Define abilities for the user here. For example:
-    #
-    #   return unless user.present?
-    #   can :read, :all
-    #   return unless user.admin?
-    #   can :manage, :all
-    #
-    # The first argument to `can` is the action you are giving the user
-    # permission to do.
-    # If you pass :manage it will apply to every action. Other common actions
-    # here are :read, :create, :update and :destroy.
-    #
-    # The second argument is the resource the user can perform the action on.
-    # If you pass :all it will apply to every resource. Otherwise pass a Ruby
-    # class of the resource.
-    #
-    # The third argument is an optional hash of conditions to further filter the
-    # objects.
-    # For example, here the user can only update published articles.
-    #
-    #   can :update, Article, published: true
-    #
-    # See the wiki for details:
-    # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
+    user ||= User.new
+    
+    if user.admin?
+      can :manage, :all
+    elsif user.client?
+      can :read, :all
+      can :manage, Job, client_id: user.id
+      can :manage, Contract, client_id: user.id
+      can :manage, Payment, contract: { client_id: user.id }
+      can :read, TimeEntry, contract: { client_id: user.id }
+      can :read, Proposal, job: { client_id: user.id }
+      can :manage, Profile, user_id: user.id
+    elsif user.freelancer?
+      can :read, :all
+      can :create, Proposal, freelancer_id: user.id
+      can :manage, Proposal, freelancer_id: user.id
+      can :manage, TimeEntry, freelancer_id: user.id
+      can :read, Contract, freelancer_id: user.id
+      can :read, Payment, contract: { freelancer_id: user.id }
+      can :manage, Profile, user_id: user.id
+    else
+      can :read, Job
+    end
   end
 end
