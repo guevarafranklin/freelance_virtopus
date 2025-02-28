@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  first_name: MyString
+  last_name: MyString
+  title: MyString
+  bio: MyText
+  hourly_rate: 9.99
+  skills: MyText
+  avatar: MyString
+
+two:
+  user: two
+  first_name: MyString
+  last_name: MyString
+  title: MyString
+  bio: MyText
+  hourly_rate: 9.99
+  skills: MyText
+  avatar: MyString
