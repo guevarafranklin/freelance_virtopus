@@ -1,11 +1,16 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  email: MyString
-  password_digest: MyString
-  role: MyString
+  email: tecguevara@gmail.com
+  password_digest: password
+  role: admin
 
 two:
-  email: MyString
-  password_digest: MyString
-  role: MyString
+  email: ing.guevara@outlook.com
+  password_digest: password
+  role: freelancer
+
+three:
+  email: fran@franklinguevara.com
+  password_digest: password
+  role: client
