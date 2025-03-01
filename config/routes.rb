@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  
   # Authentication routes
   devise_for :users, controllers: {
     registrations: 'users/registrations',
